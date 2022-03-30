@@ -1,4 +1,3 @@
 ---
-paths:
-  - parent: docs
+paths: []
 ---

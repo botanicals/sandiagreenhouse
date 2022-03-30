@@ -1,38 +1,61 @@
 import { NextPage } from 'next';
+import Link from 'next/link';
 
-import PageLayout from '../layouts/PageLayout';
+import { ChevronRightIcon } from '@heroicons/react/solid';
+import { DocumentTextIcon } from '@heroicons/react/outline';
+
+const links = [{ title: 'Pricelist', description: 'View our current pricelist', icon: DocumentTextIcon, href: '/pricelist' }];
 
 const NotFound: NextPage = () => {
   return (
-    <PageLayout seo={{ title: 'Not Found', slug: '' }}>
-      <div className="bg-white min-h-full px-4 py-16 sm:px-6 sm:py-24 md:grid md:place-items-center lg:px-8">
-        <div className="max-w-max mx-auto">
-          <div className="sm:flex">
-            <p className="text-4xl font-extrabold text-indigo-600 sm:text-5xl">404</p>
-            <div className="sm:ml-6">
-              <div className="sm:border-l sm:border-gray-200 sm:pl-6">
-                <h1 className="text-4xl font-extrabold text-gray-900 tracking-tight sm:text-5xl">Page not found</h1>
-                <p className="mt-1 text-base text-gray-500">Please check the URL in the address bar and try again.</p>
-              </div>
-              <div className="mt-10 flex space-x-3 sm:border-l sm:border-transparent sm:pl-6">
-                <a
-                  href="#"
-                  className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                >
-                  Go back home
-                </a>
-                <a
-                  href="#"
-                  className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-indigo-700 bg-indigo-100 hover:bg-indigo-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                >
-                  Contact support
-                </a>
-              </div>
-            </div>
+    <div className="bg-white">
+      <main className="w-full px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+        <div className="flex-shrink-0 pt-16">
+          <Link href="/">
+            <a>
+              <img className="w-auto mx-auto" src="/assets/sandia.png" alt="Sandia Greenhouse" />
+            </a>
+          </Link>
+        </div>
+        <div className="max-w-xl py-16 mx-auto sm:py-24">
+          <div className="text-center">
+            <p className="text-sm font-semibold tracking-wide text-green-600 uppercase">Coming soon</p>
+            <h1 className="mt-2 text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl">This site is under construction</h1>
+            <p className="mt-2 text-lg text-gray-500">In the meantime, check out our helpful resources</p>
+          </div>
+          <div className="mt-12">
+            <h2 className="text-sm font-semibold tracking-wide text-gray-500 uppercase">Helpful resources</h2>
+            <ul role="list" className="mt-4 border-t border-b border-gray-200 divide-y divide-gray-200">
+              {links.map((link, linkIdx) => (
+                <li key={linkIdx} className="relative flex items-start py-6 space-x-4">
+                  <div className="flex-shrink-0">
+                    <span className="flex items-center justify-center w-12 h-12 rounded-lg bg-green-50">
+                      <link.icon className="w-6 h-6 text-green-700" aria-hidden="true" />
+                    </span>
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <h3 className="text-base font-medium text-gray-900">
+                      <span className="rounded-sm focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-green-500">
+                        <Link href={link.href}>
+                          <a className="focus:outline-none">
+                            <span className="absolute inset-0" aria-hidden="true" />
+                            {link.title}
+                          </a>
+                        </Link>
+                      </span>
+                    </h3>
+                    <p className="text-base text-gray-500">{link.description}</p>
+                  </div>
+                  <div className="self-center flex-shrink-0">
+                    <ChevronRightIcon className="w-5 h-5 text-gray-400" aria-hidden="true" />
+                  </div>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
-      </div>
-    </PageLayout>
+      </main>
+    </div>
   );
 };
 

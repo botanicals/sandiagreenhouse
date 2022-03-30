@@ -33,7 +33,6 @@ collections:
               fields:
                 [
                   { label: 'Title', name: 'title', widget: 'string' },
-                  { label: 'Slug', name: slug, widget: string },
                   { label: 'Description', name: 'description', widget: 'text' },
                   { label: 'Share Image', name: 'shareImage', widget: 'image', required: false },
                   { label: 'Twitter Username', name: 'twitterUsername', widget: 'string', required: false },
@@ -116,93 +115,109 @@ collections:
                 ],
             }
 
-  # Pages
-  - name: 'pages'
-    label: 'Pages'
-    label_singular: 'Page'
-    summary: '{{name}}'
-    identifier_field: metadata.slug
-    create: true
-    folder: content/pages
-    fields:
-      # Name
-      - { label: 'Name', name: 'name', widget: 'string' }
+      - file: 'content/settings/pricelist.md'
+        label: Pricelist
+        name: pricelist
+        fields:
+          - {
+              label: PDFS,
+              label_singular: PDF,
+              name: pdfs,
+              widget: list,
+              fields:
+                [
+                  { label: Name, name: name, widget: string },
+                  { label: Description, name: description, widget: string },
+                  { label: File, name: file, widget: file, media_folder: '/public/uploads/pricelist' },
+                ],
+            }
+  # # Pages
+  # - name: 'pages'
+  #   label: 'Pages'
+  #   label_singular: 'Page'
+  #   summary: '{{name}}'
+  #   identifier_field: metadata.slug
+  #   create: true
+  #   folder: content/pages
+  #   fields:
+  #     # Name
+  #     - { label: 'Name', name: 'name', widget: 'string' }
 
-      # Parent
-      - {
-          label: Parent,
-          name: parent,
-          widget: relation,
-          collection: pages,
-          search_fields: ['metadata.slug'],
-          value_field: '{{metadata.title}}__{{metadata.slug}}',
-          display_fields: ['name'],
-          required: false,
-        }
+  #     # Parent
+  #     - {
+  #         label: Parent,
+  #         name: parent,
+  #         widget: relation,
+  #         collection: pages,
+  #         search_fields: ['metadata.slug'],
+  #         value_field: '{{metadata.title}}__{{metadata.slug}}',
+  #         display_fields: ['name'],
+  #         required: false,
+  #       }
 
-      # Sections
-      - {
-          label: 'Sections',
-          label_singular: Section,
-          name: 'sections',
-          widget: 'list',
-          types:
-            [
-              {
-                label: Hero,
-                name: hero,
-                widget: object,
-                collapsed: true,
-                fields:
-                  [
-                    { label: Heading, name: heading, widget: string },
-                    { label: Subheading, name: subheading, widget: string },
-                    { label: Image, name: image, widget: object, fields: [{ label: Name, name: name, widget: string }, { label: Ext, name: ext, widget: string, default: 'jpg' }] },
-                    {
-                      label: CTA,
-                      name: cta,
-                      widget: object,
-                      collapsed: true,
-                      fields:
-                        [
-                          { label: Heading, name: heading, widget: string, required: false },
-                          { label: Text, name: text, widget: string, required: false },
-                          {
-                            label: Button,
-                            name: button,
-                            widget: object,
-                            fields: [{ label: Text, name: text, widget: string, required: false }, { label: Href, name: href, widget: string, required: false }],
-                            required: false,
-                          },
-                        ],
-                      required: false,
-                    },
-                  ],
-              },
-              { label: 'Content', name: 'content', widget: 'object', fields: [{ label: Heading, name: heading, widget: string }, { label: 'Content', name: content, widget: 'markdown' }] },
-              {
-                label: Image,
-                name: image,
-                widget: object,
-                fields: [{ label: Source, name: source, widget: image }, { label: Alt, name: alt, widget: string }, { label: Caption, name: caption, widget: string }],
-              },
-              { label: Newsletter, name: newsletter, widget: object, fields: [{ label: Placeholder, name: placeholder, widget: string }] },
-            ],
-        }
+  #     # Sections
+  #     - {
+  #         label: 'Sections',
+  #         label_singular: Section,
+  #         name: 'sections',
+  #         widget: 'list',
+  #         types:
+  #           [
+  #             {
+  #               label: Hero,
+  #               name: hero,
+  #               widget: object,
+  #               collapsed: true,
+  #               fields:
+  #                 [
+  #                   { label: Heading, name: heading, widget: string },
+  #                   { label: Subheading, name: subheading, widget: string },
+  #                   { label: Image, name: image, widget: object, fields: [{ label: Name, name: name, widget: string }, { label: Ext, name: ext, widget: string, default: 'jpg' }] },
+  #                   {
+  #                     label: CTA,
+  #                     name: cta,
+  #                     widget: object,
+  #                     collapsed: true,
+  #                     fields:
+  #                       [
+  #                         { label: Heading, name: heading, widget: string, required: false },
+  #                         { label: Text, name: text, widget: string, required: false },
+  #                         {
+  #                           label: Button,
+  #                           name: button,
+  #                           widget: object,
+  #                           fields: [{ label: Text, name: text, widget: string, required: false }, { label: Href, name: href, widget: string, required: false }],
+  #                           required: false,
+  #                         },
+  #                       ],
+  #                     required: false,
+  #                   },
+  #                 ],
+  #             },
+  #             { label: 'Content', name: 'content', widget: 'object', fields: [{ label: Heading, name: heading, widget: string }, { label: 'Content', name: content, widget: 'markdown' }] },
+  #             {
+  #               label: Image,
+  #               name: image,
+  #               widget: object,
+  #               fields: [{ label: Source, name: source, widget: image }, { label: Alt, name: alt, widget: string }, { label: Caption, name: caption, widget: string }],
+  #             },
+  #             { label: Newsletter, name: newsletter, widget: object, fields: [{ label: Placeholder, name: placeholder, widget: string }] },
+  #           ],
+  #       }
 
-      # Metadata
-      - {
-          label: 'Metadata',
-          name: 'metadata',
-          widget: 'object',
-          fields:
-            [
-              { label: 'Title', name: 'title', widget: 'string' },
-              { label: 'Slug', name: slug, widget: string },
-              { label: 'Description', name: 'description', widget: 'text', required: false },
-              { label: 'Share Image', name: 'shareImage', widget: 'image', required: false },
-              { label: 'Twitter Username', name: 'twitterUsername', widget: 'string', required: false },
-              { label: 'Twitter Card Type', name: 'twitterCardType', widget: 'select', options: ['summary', 'summary_large_image', 'app', 'player'], required: false },
-              { label: 'Overwrite Title', name: 'titleOverwrite', widget: boolean, required: false },
-            ],
-        }
+  #     # Metadata
+  #     - {
+  #         label: 'Metadata',
+  #         name: 'metadata',
+  #         widget: 'object',
+  #         fields:
+  #           [
+  #             { label: 'Title', name: 'title', widget: 'string' },
+  #             { label: 'Slug', name: slug, widget: string },
+  #             { label: 'Description', name: 'description', widget: 'text', required: false },
+  #             { label: 'Share Image', name: 'shareImage', widget: 'image', required: false },
+  #             { label: 'Twitter Username', name: 'twitterUsername', widget: 'string', required: false },
+  #             { label: 'Twitter Card Type', name: 'twitterCardType', widget: 'select', options: ['summary', 'summary_large_image', 'app', 'player'], required: false },
+  #             { label: 'Overwrite Title', name: 'titleOverwrite', widget: boolean, required: false },
+  #           ],
+  #       }

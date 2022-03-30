@@ -1,5 +1,3 @@
 ---
-headerNavigation:
-  - name: Docs
-    path: docs
+headerNavigation: []
 ---
