@@ -1,2 +1,5 @@
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
 [context.branch-deploy]
   command = "npm run build:branch"
