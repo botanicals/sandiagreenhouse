@@ -13,7 +13,7 @@ interface GalleryProps {
 
 const Gallery: React.VFC<GalleryProps> = ({ data: gallery }) => {
   return (
-    <section className="">
+    <div>
       <div className="grid grid-flow-row-dense grid-cols-2 gap-6 md:grid-cols-4">
         {gallery.images.map((image, index) => (
           <figure
@@ -28,7 +28,7 @@ const Gallery: React.VFC<GalleryProps> = ({ data: gallery }) => {
           </figure>
         ))}
       </div>
-    </section>
+    </div>
   );
 };
 
