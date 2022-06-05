@@ -6,7 +6,10 @@ module.exports = {
     extend: {
       colors: {
         primary: '#096F1F',
-        light: '#FFFCF3',
+        light: {
+          DEFAULT: '#FFFCF3',
+          deep: '#E9E3CE',
+        },
       },
       fontFamily: {
         sans: ['Taviraj', ...defaultTheme.fontFamily.sans],
