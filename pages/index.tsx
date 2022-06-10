@@ -52,9 +52,9 @@ interface IndexPageProps {
 const IndexPage: NextPage<IndexPageProps> = ({ name, metadata, content, businessDetails, pricelist, gallery }) => {
   return (
     <PageLayout seo={metadata}>
-      <div className="relative h-64 overflow-clip">
-        <div className="absolute inset-0">
-          <img className="object-cover w-full h-full" src="/assets/hero-image.jpg" alt="red and white flowers closeup" />
+      <div className="relative">
+        <div className="">
+          <img className="object-contain w-full h-full" src="/assets/sandia-hero.jpg" alt="red and white flowers closeup" />
         </div>
       </div>
 
