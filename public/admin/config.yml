@@ -40,30 +40,6 @@ collections:
                 ],
             }
 
-          # Site Banner
-          - {
-              label: 'Site Banner',
-              name: 'siteBanner',
-              widget: object,
-              fields:
-                [
-                  { label: 'Short Text', name: 'shortText', widget: string, required: false },
-                  { label: 'Long Text', name: 'longText', widget: string, required: false },
-                  {
-                    label: 'Link',
-                    name: 'link',
-                    widget: object,
-                    required: false,
-                    fields:
-                      [
-                        { label: Href, name: href, widget: string, required: false },
-                        { label: Text, name: text, widget: string, required: false },
-                        { label: External, name: external, widget: boolean, default: false, required: false },
-                      ],
-                  },
-                ],
-            }
-
       - file: 'content/settings/navigation.md'
         label: 'Navigation'
         name: 'navigation'
@@ -78,17 +54,6 @@ collections:
                 [
                   { label: 'Name', name: 'name', widget: string },
                   { label: Path, name: path, widget: relation, collection: 'pages', search_fields: ['metadata.slug'], value_field: 'metadata.slug', display_fields: ['name'] },
-                  {
-                    label: 'Children',
-                    label_singular: 'Item',
-                    name: 'children',
-                    widget: 'list',
-                    fields:
-                      [
-                        { label: 'Name', name: 'name', widget: string },
-                        { label: Path, name: path, widget: relation, collection: 'pages', search_fields: ['metadata.slug'], value_field: 'metadata.slug', display_fields: ['name'] },
-                      ],
-                  },
                 ],
             }
 
@@ -262,6 +227,33 @@ collections:
                   },
                 ],
             }
+
+          # Metadata
+          - {
+              label: 'Metadata',
+              name: 'metadata',
+              widget: 'object',
+              fields:
+                [
+                  { label: 'Title', name: 'title', widget: 'string' },
+                  { label: 'Slug', name: slug, widget: string },
+                  { label: 'Description', name: 'description', widget: 'text', required: false },
+                  { label: 'Share Image', name: 'shareImage', widget: 'image', required: false },
+                  { label: 'Twitter Username', name: 'twitterUsername', widget: 'string', required: false },
+                  { label: 'Twitter Card Type', name: 'twitterCardType', widget: 'select', options: ['summary', 'summary_large_image', 'app', 'player'], required: false },
+                  { label: 'Overwrite Title', name: 'titleOverwrite', widget: boolean, required: false },
+                ],
+            }
+
+      - file: 'content/pages/seasonals.md'
+        label: 'Seasonals'
+        name: 'seasonals'
+        fields:
+          # Name
+          - { label: 'Name', name: 'name', widget: 'string' }
+
+          # Content
+          - { label: 'Content', name: 'content', widget: object, fields: [{ label: Heading, name: heading, widget: string }, { label: Content, name: content, widget: markdown }] }
 
           # Metadata
           - {

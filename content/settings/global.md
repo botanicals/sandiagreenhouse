@@ -7,11 +7,4 @@ defaultMetadata:
     Larry Hancock has operated Sandia Farms as long as it has been in existence,
     over 30 years! At Sandia Farms you can find what you need for your garden,
     flowerbeds, and landscape.
-siteBanner:
-  shortText: ""
-  longText: ""
-  link:
-    href: ""
-    text: ""
-    external: false
 ---
