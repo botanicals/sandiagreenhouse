@@ -27,8 +27,8 @@ const AboutPage: NextPage<AboutPageProps> = ({ name, metadata, content }) => {
           <img className="object-cover w-full h-full" src="/assets/hero-image.jpg" alt="red and white flowers closeup" />
         </div>
       </div>
-      <h1 className="mx-auto my-8 text-4xl font-bold text-primary max-w-7xl">{content.heading}</h1>
-      <section className="grid gap-8 mx-auto my-8 md:grid-cols-2 max-w-7xl">
+      <h1 className="px-4 mx-auto my-8 text-4xl font-bold text-primary max-w-7xl">{content.heading}</h1>
+      <section className="grid gap-8 px-4 mx-auto my-8 md:grid-cols-2 max-w-7xl">
         <div className="space-y-4">
           <MarkdownText>{content.content}</MarkdownText>
         </div>

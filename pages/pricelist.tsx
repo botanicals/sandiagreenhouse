@@ -18,7 +18,6 @@ interface PricelistPageProps {
 }
 
 const PricelistPage: NextPage<PricelistPageProps> = ({ name, metadata, pricelist }) => {
-  console.log(pricelist);
   return (
     <PageLayout seo={metadata}>
       <div className="relative h-64 overflow-clip">
@@ -26,8 +25,8 @@ const PricelistPage: NextPage<PricelistPageProps> = ({ name, metadata, pricelist
           <img className="object-cover w-full h-full" src="/assets/hero-image.jpg" alt="red and white flowers closeup" />
         </div>
       </div>
-      <h1 className="mx-auto my-8 text-4xl font-bold text-primary max-w-7xl">Pricelist</h1>
-      <section className="mx-auto my-8 max-w-7xl">
+      <h1 className="px-4 mx-auto my-8 text-4xl font-bold text-primary max-w-7xl">Pricelist</h1>
+      <section className="px-4 mx-auto my-8 max-w-7xl">
         {pricelist.pdfs.map((pdf: PDF, index: number) => {
           return (
             <div className="w-full" key={index}>
