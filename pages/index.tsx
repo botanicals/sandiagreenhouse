@@ -101,7 +101,7 @@ const IndexPage: NextPage<IndexPageProps> = ({ name, metadata, content, business
           <div className="border-4 w-full h-96 md:w-[500px] md:h-[500px] border-light-deep absolute top-4 md:left-[25%]"></div>
           <div className="w-full h-96 md:w-[500px] md:h-[500px] bg-primary z-10 text-light flex flex-col justify-center items-center">
             <h2 className="mb-8 text-3xl font-bold">{pricelist.heading}</h2>
-            <Link href={pricelist.button.href}>
+            <Link href={`/${pricelist.button.href}`}>
               <a className="px-4 py-2 font-semibold tracking-wide uppercase border-2 hover:bg-light hover:text-primary rounded-3xl border-light">{pricelist.button.text}</a>
             </Link>
           </div>
