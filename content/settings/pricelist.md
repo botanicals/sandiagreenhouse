@@ -1,6 +1,6 @@
 ---
 pdfs:
-  - name: Spring 2022
-    description: View our Spring 2022 pricelist
-    file: /uploads/pricelist/sandia-spring-2022.pdf
+  - name: '2023 Pricelist'
+    description: View our 2023 pricelist
+    file: /uploads/pricelist/sandia-2023-pricelist.pdf
 ---
