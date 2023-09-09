@@ -7,9 +7,11 @@ import rehypeSlug from 'rehype-slug';
 
 const MarkdownText = ({ markdown, children }: { markdown?: string; children?: string }) => {
   return (
-    <Markdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeSlug]}>
-      {String(children || markdown)}
-    </Markdown>
+    <div className="prose max-w-none">
+      <Markdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeSlug]}>
+        {String(children || markdown)}
+      </Markdown>
+    </div>
   );
 };
 

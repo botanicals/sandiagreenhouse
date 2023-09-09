@@ -29,7 +29,7 @@ const PricelistPage: NextPage<PricelistPageProps> = ({ name, metadata, pricelist
       <section className="px-4 mx-auto my-8 max-w-7xl">
         {pricelist.pdfs.map((pdf: PDF, index: number) => {
           return (
-            <div className="w-full" key={index}>
+            <div className="w-full mb-8" key={index}>
               <h2 className="mb-2 text-2xl font-bold text-primary">{pdf.name}</h2>
               <embed className="w-full min-h-[1000px] border-4 border-light-deep" type="application/pdf" src={pdf.file} />
             </div>
