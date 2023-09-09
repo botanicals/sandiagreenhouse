@@ -6,6 +6,9 @@ import { AppProps } from 'next/app';
 
 import { DefaultSeo } from 'next-seo';
 
+import 'yet-another-react-lightbox/styles.css';
+import 'yet-another-react-lightbox/plugins/captions.css';
+
 import * as gtag from '../lib/gtag';
 
 import { attributes as global } from '../content/settings/global.md';
