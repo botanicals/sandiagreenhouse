@@ -121,6 +121,31 @@ collections:
                 ],
             }
 
+          # Testimonials
+          - {
+              label: Testimonials,
+              name: testimonials,
+              widget: object,
+              fields:
+                [
+                  { label: Heading, name: heading, widget: string },
+                  {
+                    label: 'Reviews',
+                    label_singular: 'Review',
+                    name: 'reviews',
+                    widget: 'list',
+                    summary: '{{fields.alt}} - {{fields.image}}',
+                    fields:
+                      [
+                        { label: Stars, name: stars, widget: number, min: 1, max: 5 },
+                        { label: When, name: when, widget: string },
+                        { label: Content, name: content, widget: text },
+                        { label: Author, name: author, widget: string },
+                      ],
+                  },
+                ],
+            }
+
           # Gallery
           - {
               label: Gallery,
@@ -254,6 +279,75 @@ collections:
 
           # Content
           - { label: 'Content', name: 'content', widget: object, fields: [{ label: Heading, name: heading, widget: string }, { label: Content, name: content, widget: markdown }] }
+
+          # Seasonals
+          - {
+              label: 'Seasonals',
+              name: 'seasonals',
+              widget: list,
+              summary: '{{fields.name}}',
+              fields:
+                [
+                  { label: Name, name: name, widget: string },
+                  {
+                    label: 'Images',
+                    name: images,
+                    widget: list,
+                    summary: '{{fields.alt}} - {{fields.image}}',
+                    fields: [{ label: Source, name: source, widget: image }, { label: Alt, name: alt, widget: string }],
+                  },
+                ],
+            }
+
+          # Metadata
+          - {
+              label: 'Metadata',
+              name: 'metadata',
+              widget: 'object',
+              fields:
+                [
+                  { label: 'Title', name: 'title', widget: 'string' },
+                  { label: 'Slug', name: slug, widget: string },
+                  { label: 'Description', name: 'description', widget: 'text', required: false },
+                  { label: 'Share Image', name: 'shareImage', widget: 'image', required: false },
+                  { label: 'Twitter Username', name: 'twitterUsername', widget: 'string', required: false },
+                  { label: 'Twitter Card Type', name: 'twitterCardType', widget: 'select', options: ['summary', 'summary_large_image', 'app', 'player'], required: false },
+                  { label: 'Overwrite Title', name: 'titleOverwrite', widget: boolean, required: false },
+                ],
+            }
+
+      - file: 'content/pages/events.md'
+        label: 'Events'
+        name: 'events'
+        fields:
+          # Name
+          - { label: 'Name', name: 'name', widget: 'string' }
+
+          # Headline
+          - {
+              label: 'Headline',
+              name: headline,
+              widget: object,
+              fields: [{ label: Source, name: source, widget: image }, { label: Alt, name: alt, widget: string }, { label: Caption, name: caption, widget: string, required: false }],
+            }
+
+          # Content
+          - {
+              label: 'Content',
+              name: 'content',
+              widget: object,
+              fields:
+                [
+                  { label: Heading, name: heading, widget: string },
+                  { label: Content, name: content, widget: markdown },
+                  {
+                    label: Image,
+                    name: image,
+                    widget: object,
+                    fields: [{ label: Source, name: source, widget: image }, { label: Alt, name: alt, widget: string }, { label: Caption, name: caption, widget: string, required: false }],
+                  },
+                ],
+            }
 
           # Metadata
           - {

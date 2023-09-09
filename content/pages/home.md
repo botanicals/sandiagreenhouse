@@ -56,6 +56,33 @@ pricelist:
     href: pricelist
     text: View Pricelist
   heading: Pricelist
+testimonials:
+  heading: Testimonials
+  reviews:
+    - stars: 5
+      when: 7 months ago
+      content: By far my favorite nursery in the area! I love that they grow from seed
+        and not import their fruits and vegetables from other areas. I know what
+        I bring home will grow in my garden because it was grown in a similar
+        environment. I bought lettuce and spinach and they’re doing great! No
+        shock and they’ve been healthy for a few months now. The staff is
+        wonderful and friendly as well! Larry knows his stuff! My son lost his
+        puppet he had just made and the lady that helped us helped us look for
+        it.
+      author: Kelsie J
+    - stars: 5
+      when: 3 months ago
+      content: This is such a great nursery. Locally owned, and plants that are more
+        likely to thrive in this climate than big box stores. People working
+        there are also very willing to help with plant selection and ideas.
+        Highly recommend shopping here!
+      author: Linda F
+    - stars: 5
+      when: 6 months ago
+      content: I love this place. The owner is so knowledgeable and is always helpful
+        and eager to help you with whatever. I hope that his kids take over and
+        it never goes away! It is by far the best plant nursery
+      author: Summers K
 gallery:
   images:
     - columns: 2

@@ -4,6 +4,8 @@ headerNavigation:
     path: about
   - name: Pricelist
     path: pricelist
+  - name: Events
+    path: events
   - name: Seasonals
     path: seasonals
 ---
