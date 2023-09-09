@@ -4,6 +4,7 @@ import PageLayout from '../layouts/PageLayout';
 import { Metadata } from '../layouts/components/Seo';
 
 import MarkdownText from '../components/markdown-text';
+import Gallery from '../components/gallery';
 
 interface SeasonalsPageProps {
   name: string;
@@ -12,9 +13,16 @@ interface SeasonalsPageProps {
     heading: string;
     content: string;
   };
+  seasonals: {
+    name: string;
+    images: {
+      source: string;
+      alt: string;
+    }[];
+  }[];
 }
 
-const SeasonalsPage: NextPage<SeasonalsPageProps> = ({ name, metadata, content }) => {
+const SeasonalsPage: NextPage<SeasonalsPageProps> = ({ name, metadata, content, seasonals }) => {
   return (
     <PageLayout seo={metadata}>
       <div className="relative h-64 overflow-clip">
@@ -28,6 +36,15 @@ const SeasonalsPage: NextPage<SeasonalsPageProps> = ({ name, metadata, content }
           <MarkdownText>{content.content}</MarkdownText>
         </div>
       </section>
+
+      <section className="px-4 mx-auto my-8 max-w-7xl">
+        {seasonals.map(seasonal => (
+          <div key={seasonal.name} className="space-y-4">
+            <h2 className="mt-16 mb-8 text-3xl font-bold text-primary">{seasonal.name}</h2>
+            <Gallery images={seasonal.images} title={seasonal.name} />
+          </div>
+        ))}
+      </section>
     </PageLayout>
   );
 };
@@ -37,13 +54,14 @@ export async function getStaticProps() {
 
   if (!page) return { props: {} };
 
-  const { name, metadata, content } = page.attributes;
+  const { name, metadata, content, seasonals } = page.attributes;
 
   return {
     props: {
       name,
       metadata,
       content,
+      seasonals,
     },
   };
 }
