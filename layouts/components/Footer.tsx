@@ -61,9 +61,13 @@ const Footer = () => {
               </div>
 
               <div className="mt-12 md:mt-0">
-                <h3 className="mb-4 text-sm font-bold tracking-wider uppercase">Hours</h3>
+                <h3 className="mb-4 text-sm font-bold tracking-wider uppercase">Summer Hours</h3>
+                <p>March 1st - August 31st</p>
                 <p>Monday - Saturday: 8:00 AM – 6:00 PM </p>
-                <p>Sunday: Closed</p>
+
+                <h3 className="my-4 text-sm font-bold tracking-wider uppercase">Winter Hours</h3>
+                <p>September 1st - February 28th</p>
+                <p>Monday - Saturday: 8:00 AM – 5:00 PM </p>
               </div>
 
               <div className="mt-12 md:mt-0">

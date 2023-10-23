@@ -15,6 +15,7 @@ interface SeasonalsPageProps {
   };
   seasonals: {
     name: string;
+    description?: string;
     images: {
       source: string;
       alt: string;
@@ -32,16 +33,15 @@ const SeasonalsPage: NextPage<SeasonalsPageProps> = ({ name, metadata, content, 
       </div>
       <h1 className="px-4 mx-auto my-8 text-4xl font-bold text-primary max-w-7xl">{content.heading}</h1>
       <section className="px-4 mx-auto my-8 max-w-7xl">
-        <div className="space-y-4">
-          <MarkdownText>{content.content}</MarkdownText>
-        </div>
+        <div className="space-y-4 text-xl">{content.content}</div>
       </section>
 
       <section className="px-4 mx-auto my-8 max-w-7xl">
         {seasonals.map(seasonal => (
           <div key={seasonal.name} className="space-y-4">
             <h2 className="mt-16 mb-8 text-3xl font-bold text-primary">{seasonal.name}</h2>
-            <Gallery images={seasonal.images} title={seasonal.name} />
+            {seasonal.description && <div className="space-y-4 text-xl">{seasonal.description}</div>}
+            <Gallery images={seasonal.images || []} title={seasonal.name} />
           </div>
         ))}
       </section>

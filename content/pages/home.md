@@ -12,21 +12,20 @@ sections:
 content:
   content: "Sandia Greenhouse has been the leading local grower in Southern Utah
     for over 40+ years. Owned and Operated by Larry Hancock, Sandia specializes
-    in local grown plants that thrive in our local climate.   \r
+    in locally grown plants that thrive in our specific climate.   \r
 
     \r
 
-    Not only do Southern Utahan’s flock to Sandia as their best source of
-    bedding plants, vegetables, trees, and  Christmas Poinsettias. But loyal
+    Not only do Southern Utahn’s flock to Sandia as their best source of
+    bedding plants, vegetables, trees, and  Christmas Poinsettias, but loyal
     customers even come all the way from Nevada, Arizona, and in some cases even
     Central and Northern Utah. \r
 
     \r
 
-    Many big box stores bring in plants from other climates. This almost
-    inevitably results in sub-par growth or the plants dying shortly after
-    planting. At Sandia Greenhouse you can count on getting plants that are
-    acclimated and ideally suited for our desert climate.  \r
+    We feature a wide variety of locally acclimated plants, many which are
+    grown at our location.  We invite you to stop by and see us often.  Our
+    inventory changes with the seasons.  We also offer custom growing.  \r
 
     \r
 
@@ -42,8 +41,10 @@ businessDetails:
     text: (435) 628-1367
     href: tel:4356281367
   hours: |-
-    Monday - Saturday: 8:00 AM – 6:00 PM
-    Sunday: Closed
+    Summer (Mar 1st - Aug 31st) | Mon - Sat: 8:00 AM – 6:00 PM
+
+
+    Winter (Sep 1st - Feb 28th) | Mon - Sat: 8:00 AM – 5:00 PM
   address: |-
     4234 South Washington Fields Road
     Washington, UT 84780

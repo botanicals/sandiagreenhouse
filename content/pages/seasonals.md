@@ -2,8 +2,8 @@
 name: Seasonals
 content:
   heading: Seasonals
-  content: Check back each season as this page will be updated with some of our
-    seasonal offerings.
+  content: While we have many offerings every season, you can always count on us
+    for our local standard seasonal offerings.
 seasonals:
   - name: Geraniums
     images:
@@ -35,32 +35,56 @@ seasonals:
         alt: Poinsettias 6
       - source: /uploads/white-jpg.jpg
         alt: Poinsettias 7
-  - name: Winter Flowers - Pansy, Snapdragon, Stalk
+  - name: Spring and Winter Flowers - Violas, Pansies, Snapdragon, Stalk
     images:
       - source: /uploads/img_3593-2.jpeg
-        alt: Winter Flowers 1
+        alt: Spring and Winter Flowers 1
       - source: /uploads/img_7021-copy.jpg
-        alt: Winter Flowers 2
+        alt: Spring and Winter Flowers 2
       - source: /uploads/resized_resized_20220919_102416.jpeg
-        alt: Winter Flowers 3
+        alt: Spring and Winter Flowers 3
       - source: /uploads/resized_resized_20220919_102426.jpeg
-        alt: Winter Flowers 4
+        alt: Spring and Winter Flowers 4
       - source: /uploads/resized_resized_20220919_102433.jpeg
-        alt: Winter Flowers 5
+        alt: Spring and Winter Flowers 5
       - source: /uploads/resized_resized_20220919_102739.jpeg
-        alt: Winter Flowers 6
+        alt: Spring and Winter Flowers 6
       - source: /uploads/resized_resized_20220919_102834.jpeg
-        alt: Winter Flowers 7
+        alt: Spring and Winter Flowers 7
       - source: /uploads/resized_resized_20220919_103047.jpeg
-        alt: Winter Flowers 8
-  - name: Winter Veggies - Lettuce
+        alt: Spring and Winter Flowers 8
+      - source: /uploads/img_1582.jpg
+        alt: Spring and Winter Flowers 9
+      - source: /uploads/img_1584.jpg
+        alt: Spring and Winter Flowers 10
+      - source: /uploads/img_1587.jpg
+        alt: Spring and Winter Flowers 11
+  - name: "Spring, Summer, Winter Veggies, and Herbs: (Season appropriate) Lettuce,
+      Spinach, Broccoli, Cabbage, Kale, Tomatoes, Peppers, and more."
     images:
       - source: /uploads/2019-04-02.png
-        alt: Winter Veggies 1
+        alt: Spring, Summer, Winter Veggies, and Herbs 1
       - source: /uploads/lettuce-2.jpg
-        alt: Winter Veggies 2
+        alt: Spring, Summer, Winter Veggies, and Herbs 2
       - source: /uploads/lettuce-3.jpg
-        alt: Winter Veggies 3
+        alt: Spring, Summer, Winter Veggies, and Herbs 3
+      - alt: Spring, Summer, Winter Veggies, and Herbs 4
+        source: /uploads/img_1572.jpg
+      - alt: Spring, Summer, Winter Veggies, and Herbs 5
+        source: /uploads/img_1573.jpg
+      - alt: Spring, Summer, Winter Veggies, and Herbs 6
+        source: /uploads/img_1574.jpg
+      - alt: Spring, Summer, Winter Veggies, and Herbs 7
+        source: /uploads/img_1575.jpg
+      - alt: Spring, Summer, Winter Veggies, and Herbs 8
+        source: /uploads/img_1576.jpg
+      - alt: Spring, Summer, Winter Veggies, and Herbs 9
+        source: /uploads/img_1579.jpg
+  - name: Fruit Trees and Shade Trees
+    description: "We always have a variety of locally appropriate shade trees, and
+      fruit trees. Be sure to come by, or call the greenhouse to find your
+      perfect tree. You can also call us to order and reserve trees! (435)
+      628-1367 "
 metadata:
   title: Seasonals
   slug: seasonals
