@@ -40,30 +40,6 @@ collections:
                 ],
             }
 
-          # Site Banner
-          - {
-              label: 'Site Banner',
-              name: 'siteBanner',
-              widget: object,
-              fields:
-                [
-                  { label: 'Short Text', name: 'shortText', widget: string, required: false },
-                  { label: 'Long Text', name: 'longText', widget: string, required: false },
-                  {
-                    label: 'Link',
-                    name: 'link',
-                    widget: object,
-                    required: false,
-                    fields:
-                      [
-                        { label: Href, name: href, widget: string, required: false },
-                        { label: Text, name: text, widget: string, required: false },
-                        { label: External, name: external, widget: boolean, default: false, required: false },
-                      ],
-                  },
-                ],
-            }
-
       - file: 'content/settings/navigation.md'
         label: 'Navigation'
         name: 'navigation'
@@ -78,146 +54,315 @@ collections:
                 [
                   { label: 'Name', name: 'name', widget: string },
                   { label: Path, name: path, widget: relation, collection: 'pages', search_fields: ['metadata.slug'], value_field: 'metadata.slug', display_fields: ['name'] },
+                ],
+            }
+
+  # Pages
+  - name: 'pages'
+    label: 'Pages'
+    files:
+      - file: 'content/pages/home.md'
+        label: 'Home'
+        name: 'home'
+        fields:
+          # Name
+          - { label: 'Name', name: 'name', widget: 'string' }
+
+          # Content
+          - {
+              label: 'Content',
+              name: 'content',
+              widget: object,
+              fields:
+                [
+                  { label: Heading, name: heading, widget: string },
+                  { label: Content, name: content, widget: markdown },
                   {
-                    label: 'Children',
-                    label_singular: 'Item',
-                    name: 'children',
-                    widget: 'list',
+                    label: Image,
+                    name: image,
+                    widget: object,
+                    fields: [{ label: Source, name: source, widget: image }, { label: Alt, name: alt, widget: string }, { label: Caption, name: caption, widget: string }],
+                  },
+                ],
+            }
+
+          # Business Details
+          - {
+              label: 'Business Details',
+              name: 'businessDetails',
+              widget: 'object',
+              fields:
+                [
+                  { label: 'Phone Number', name: 'phoneNumber', widget: 'object', fields: [{ label: 'Text', name: 'text', widget: string }, { label: 'Href', name: 'href', widget: string }] },
+                  { label: 'Hours', name: 'hours', widget: 'text' },
+                  { label: 'Address', name: 'address', widget: 'text' },
+                  { label: 'Map', name: 'map', widget: 'object', fields: [{ label: 'Map Title', name: title, widget: string }, { label: 'Map Source', name: source, widget: string }] },
+                ],
+            }
+
+          # Pricelist
+          - {
+              label: Pricelist,
+              name: pricelist,
+              widget: object,
+              fields:
+                [
+                  { label: Heading, name: heading, widget: string },
+                  {
+                    label: Button,
+                    name: button,
+                    widget: object,
                     fields:
                       [
-                        { label: 'Name', name: 'name', widget: string },
-                        { label: Path, name: path, widget: relation, collection: 'pages', search_fields: ['metadata.slug'], value_field: 'metadata.slug', display_fields: ['name'] },
+                        { label: Text, name: text, widget: string },
+                        { label: Href, name: href, widget: relation, collection: 'pages', search_fields: ['metadata.slug'], value_field: 'metadata.slug', display_fields: ['name'] },
                       ],
                   },
                 ],
             }
 
-      - file: 'content/settings/paths.md'
-        label: 'Paths'
-        name: paths
-        fields:
+          # Testimonials
           - {
-              label: Paths,
-              label_singular: Path,
-              name: paths,
-              widget: list,
+              label: Testimonials,
+              name: testimonials,
+              widget: object,
               fields:
                 [
-                  { label: Parent, name: parent, widget: relation, collection: pages, search_fields: ['metadata.slug'], value_field: '{{metadata.slug}}', display_fields: ['name'] },
+                  { label: Heading, name: heading, widget: string },
                   {
-                    label: Children,
-                    label_singular: Child,
-                    name: children,
-                    required: false,
-                    widget: list,
-                    fields: [{ label: Child, name: child, widget: relation, collection: pages, search_fields: ['metadata.slug'], value_field: '{{metadata.slug}}', display_fields: ['name'] }],
+                    label: 'Reviews',
+                    label_singular: 'Review',
+                    name: 'reviews',
+                    widget: 'list',
+                    summary: '{{fields.alt}} - {{fields.image}}',
+                    fields:
+                      [
+                        { label: Stars, name: stars, widget: number, min: 1, max: 5 },
+                        { label: When, name: when, widget: string },
+                        { label: Content, name: content, widget: text },
+                        { label: Author, name: author, widget: string },
+                      ],
                   },
                 ],
             }
 
-      - file: 'content/settings/pricelist.md'
-        label: Pricelist
-        name: pricelist
-        fields:
+          # Gallery
           - {
-              label: PDFS,
-              label_singular: PDF,
-              name: pdfs,
+              label: Gallery,
+              name: gallery,
+              widget: object,
+              fields:
+                [
+                  {
+                    label: 'Images',
+                    label_singular: 'Image',
+                    name: 'images',
+                    widget: 'list',
+                    summary: '{{fields.alt}} - {{fields.image}}',
+                    fields:
+                      [
+                        { label: Source, name: source, widget: image },
+                        { label: Alt, name: alt, widget: string },
+                        { label: Columns, name: columns, widget: number, default: 1, min: 1 },
+                        { label: Rows, name: rows, widget: number, default: 1, min: 1 },
+                      ],
+                  },
+                ],
+            }
+
+          # Metadata
+          - {
+              label: 'Metadata',
+              name: 'metadata',
+              widget: 'object',
+              fields:
+                [
+                  { label: 'Title', name: 'title', widget: 'string' },
+                  { label: 'Slug', name: slug, widget: string },
+                  { label: 'Description', name: 'description', widget: 'text', required: false },
+                  { label: 'Share Image', name: 'shareImage', widget: 'image', required: false },
+                  { label: 'Twitter Username', name: 'twitterUsername', widget: 'string', required: false },
+                  { label: 'Twitter Card Type', name: 'twitterCardType', widget: 'select', options: ['summary', 'summary_large_image', 'app', 'player'], required: false },
+                  { label: 'Overwrite Title', name: 'titleOverwrite', widget: boolean, required: false },
+                ],
+            }
+
+      - file: 'content/pages/about.md'
+        label: 'About'
+        name: 'about'
+        fields:
+          # Name
+          - { label: 'Name', name: 'name', widget: 'string' }
+
+          # Content
+          - {
+              label: 'Content',
+              name: 'content',
+              widget: object,
+              fields:
+                [
+                  { label: Heading, name: heading, widget: string },
+                  { label: Content, name: content, widget: markdown },
+                  {
+                    label: Image,
+                    name: image,
+                    widget: object,
+                    fields: [{ label: Source, name: source, widget: image }, { label: Alt, name: alt, widget: string }, { label: Caption, name: caption, widget: string }],
+                  },
+                ],
+            }
+
+          # Metadata
+          - {
+              label: 'Metadata',
+              name: 'metadata',
+              widget: 'object',
+              fields:
+                [
+                  { label: 'Title', name: 'title', widget: 'string' },
+                  { label: 'Slug', name: slug, widget: string },
+                  { label: 'Description', name: 'description', widget: 'text', required: false },
+                  { label: 'Share Image', name: 'shareImage', widget: 'image', required: false },
+                  { label: 'Twitter Username', name: 'twitterUsername', widget: 'string', required: false },
+                  { label: 'Twitter Card Type', name: 'twitterCardType', widget: 'select', options: ['summary', 'summary_large_image', 'app', 'player'], required: false },
+                  { label: 'Overwrite Title', name: 'titleOverwrite', widget: boolean, required: false },
+                ],
+            }
+
+      - file: 'content/pages/pricelist.md'
+        label: 'Pricelist'
+        name: 'pricelist'
+        fields:
+          # Name
+          - { label: 'Name', name: 'name', widget: 'string' }
+
+          # Pricelist
+          - {
+              label: Pricelist,
+              name: pricelist,
+              widget: object,
+              fields:
+                [
+                  {
+                    label: PDFS,
+                    label_singular: PDF,
+                    name: pdfs,
+                    widget: list,
+                    fields: [{ label: Name, name: name, widget: string }, { label: Description, name: description, widget: string }, { label: File, name: file, widget: file }],
+                  },
+                ],
+            }
+
+          # Metadata
+          - {
+              label: 'Metadata',
+              name: 'metadata',
+              widget: 'object',
+              fields:
+                [
+                  { label: 'Title', name: 'title', widget: 'string' },
+                  { label: 'Slug', name: slug, widget: string },
+                  { label: 'Description', name: 'description', widget: 'text', required: false },
+                  { label: 'Share Image', name: 'shareImage', widget: 'image', required: false },
+                  { label: 'Twitter Username', name: 'twitterUsername', widget: 'string', required: false },
+                  { label: 'Twitter Card Type', name: 'twitterCardType', widget: 'select', options: ['summary', 'summary_large_image', 'app', 'player'], required: false },
+                  { label: 'Overwrite Title', name: 'titleOverwrite', widget: boolean, required: false },
+                ],
+            }
+
+      - file: 'content/pages/seasonals.md'
+        label: 'Seasonals'
+        name: 'seasonals'
+        fields:
+          # Name
+          - { label: 'Name', name: 'name', widget: 'string' }
+
+          # Content
+          - { label: 'Content', name: 'content', widget: object, fields: [{ label: Heading, name: heading, widget: string }, { label: Content, name: content, widget: markdown }] }
+
+          # Seasonals
+          - {
+              label: 'Seasonals',
+              name: 'seasonals',
               widget: list,
+              summary: '{{fields.name}}',
               fields:
                 [
                   { label: Name, name: name, widget: string },
-                  { label: Description, name: description, widget: string },
-                  { label: File, name: file, widget: file, media_folder: '/public/uploads/pricelist' },
+                  { label: Description, name: description, widget: text, required: false },
+                  {
+                    label: 'Images',
+                    name: images,
+                    widget: list,
+                    summary: '{{fields.alt}} - {{fields.image}}',
+                    fields: [{ label: Source, name: source, widget: image }, { label: Alt, name: alt, widget: string }],
+                  },
                 ],
             }
-  # # Pages
-  # - name: 'pages'
-  #   label: 'Pages'
-  #   label_singular: 'Page'
-  #   summary: '{{name}}'
-  #   identifier_field: metadata.slug
-  #   create: true
-  #   folder: content/pages
-  #   fields:
-  #     # Name
-  #     - { label: 'Name', name: 'name', widget: 'string' }
 
-  #     # Parent
-  #     - {
-  #         label: Parent,
-  #         name: parent,
-  #         widget: relation,
-  #         collection: pages,
-  #         search_fields: ['metadata.slug'],
-  #         value_field: '{{metadata.title}}__{{metadata.slug}}',
-  #         display_fields: ['name'],
-  #         required: false,
-  #       }
+          # Metadata
+          - {
+              label: 'Metadata',
+              name: 'metadata',
+              widget: 'object',
+              fields:
+                [
+                  { label: 'Title', name: 'title', widget: 'string' },
+                  { label: 'Slug', name: slug, widget: string },
+                  { label: 'Description', name: 'description', widget: 'text', required: false },
+                  { label: 'Share Image', name: 'shareImage', widget: 'image', required: false },
+                  { label: 'Twitter Username', name: 'twitterUsername', widget: 'string', required: false },
+                  { label: 'Twitter Card Type', name: 'twitterCardType', widget: 'select', options: ['summary', 'summary_large_image', 'app', 'player'], required: false },
+                  { label: 'Overwrite Title', name: 'titleOverwrite', widget: boolean, required: false },
+                ],
+            }
 
-  #     # Sections
-  #     - {
-  #         label: 'Sections',
-  #         label_singular: Section,
-  #         name: 'sections',
-  #         widget: 'list',
-  #         types:
-  #           [
-  #             {
-  #               label: Hero,
-  #               name: hero,
-  #               widget: object,
-  #               collapsed: true,
-  #               fields:
-  #                 [
-  #                   { label: Heading, name: heading, widget: string },
-  #                   { label: Subheading, name: subheading, widget: string },
-  #                   { label: Image, name: image, widget: object, fields: [{ label: Name, name: name, widget: string }, { label: Ext, name: ext, widget: string, default: 'jpg' }] },
-  #                   {
-  #                     label: CTA,
-  #                     name: cta,
-  #                     widget: object,
-  #                     collapsed: true,
-  #                     fields:
-  #                       [
-  #                         { label: Heading, name: heading, widget: string, required: false },
-  #                         { label: Text, name: text, widget: string, required: false },
-  #                         {
-  #                           label: Button,
-  #                           name: button,
-  #                           widget: object,
-  #                           fields: [{ label: Text, name: text, widget: string, required: false }, { label: Href, name: href, widget: string, required: false }],
-  #                           required: false,
-  #                         },
-  #                       ],
-  #                     required: false,
-  #                   },
-  #                 ],
-  #             },
-  #             { label: 'Content', name: 'content', widget: 'object', fields: [{ label: Heading, name: heading, widget: string }, { label: 'Content', name: content, widget: 'markdown' }] },
-  #             {
-  #               label: Image,
-  #               name: image,
-  #               widget: object,
-  #               fields: [{ label: Source, name: source, widget: image }, { label: Alt, name: alt, widget: string }, { label: Caption, name: caption, widget: string }],
-  #             },
-  #             { label: Newsletter, name: newsletter, widget: object, fields: [{ label: Placeholder, name: placeholder, widget: string }] },
-  #           ],
-  #       }
+      - file: 'content/pages/events.md'
+        label: 'Events'
+        name: 'events'
+        fields:
+          # Name
+          - { label: 'Name', name: 'name', widget: 'string' }
 
-  #     # Metadata
-  #     - {
-  #         label: 'Metadata',
-  #         name: 'metadata',
-  #         widget: 'object',
-  #         fields:
-  #           [
-  #             { label: 'Title', name: 'title', widget: 'string' },
-  #             { label: 'Slug', name: slug, widget: string },
-  #             { label: 'Description', name: 'description', widget: 'text', required: false },
-  #             { label: 'Share Image', name: 'shareImage', widget: 'image', required: false },
-  #             { label: 'Twitter Username', name: 'twitterUsername', widget: 'string', required: false },
-  #             { label: 'Twitter Card Type', name: 'twitterCardType', widget: 'select', options: ['summary', 'summary_large_image', 'app', 'player'], required: false },
-  #             { label: 'Overwrite Title', name: 'titleOverwrite', widget: boolean, required: false },
-  #           ],
-  #       }
+          # Headline
+          - {
+              label: 'Headline',
+              name: headline,
+              widget: object,
+              fields: [{ label: Source, name: source, widget: image }, { label: Alt, name: alt, widget: string }, { label: Caption, name: caption, widget: string, required: false }],
+            }
+
+          # Content
+          - {
+              label: 'Content',
+              name: 'content',
+              widget: object,
+              fields:
+                [
+                  { label: Heading, name: heading, widget: string },
+                  { label: Content, name: content, widget: markdown },
+                  {
+                    label: Image,
+                    name: image,
+                    widget: object,
+                    fields: [{ label: Source, name: source, widget: image }, { label: Alt, name: alt, widget: string }, { label: Caption, name: caption, widget: string, required: false }],
+                  },
+                ],
+            }
+
+          # Metadata
+          - {
+              label: 'Metadata',
+              name: 'metadata',
+              widget: 'object',
+              fields:
+                [
+                  { label: 'Title', name: 'title', widget: 'string' },
+                  { label: 'Slug', name: slug, widget: string },
+                  { label: 'Description', name: 'description', widget: 'text', required: false },
+                  { label: 'Share Image', name: 'shareImage', widget: 'image', required: false },
+                  { label: 'Twitter Username', name: 'twitterUsername', widget: 'string', required: false },
+                  { label: 'Twitter Card Type', name: 'twitterCardType', widget: 'select', options: ['summary', 'summary_large_image', 'app', 'player'], required: false },
+                  { label: 'Overwrite Title', name: 'titleOverwrite', widget: boolean, required: false },
+                ],
+            }
