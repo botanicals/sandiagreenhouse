@@ -81,10 +81,64 @@ seasonals:
       - alt: Spring, Summer, Winter Veggies, and Herbs 9
         source: /uploads/img_1579.jpg
   - name: Fruit Trees and Shade Trees
-    description: "We always have a variety of locally appropriate shade trees, and
-      fruit trees. Be sure to come by, or call the greenhouse to find your
-      perfect tree. You can also call us to order and reserve trees! (435)
-      628-1367 "
+    description: We always have a variety of locally appropriate shade trees, and
+      fruit trees. While some of our specialty trees may vary from season to
+      season, you can always count on Sandia Greenhouse for a large selection of
+      fruit trees including, apricot, apple, nectarine, peach, pear, and plum
+      varieties. Nut tree availability may vary, so be sure to come by, or call
+      the greenhouse to find your perfect tree. You can also call us to order
+      and reserve trees! (435) 628-1367
+    images:
+      - source: /uploads/specialty_grape-vine-varieties.jpg
+        alt: Fruit Trees and Shade Trees 1
+      - source: /uploads/peach-tree.jpg
+        alt: Fruit Trees and Shade Trees 2
+      - source: /uploads/novelty_-fig-tree.jpg
+        alt: Fruit Trees and Shade Trees 3
+      - source: /uploads/novelty_-avacado.jpg
+        alt: Fruit Trees and Shade Trees 4
+      - source: /uploads/magnolia.jpg
+        alt: Fruit Trees and Shade Trees 5
+      - source: /uploads/img_9810-2.jpg
+        alt: Fruit Trees and Shade Trees 6
+      - source: /uploads/img_7346-2.jpg
+        alt: Fruit Trees and Shade Trees 7
+      - source: /uploads/img_7344-2.jpg
+        alt: Fruit Trees and Shade Trees 8
+      - source: /uploads/img_6512-2.jpg
+        alt: Fruit Trees and Shade Trees 9
+      - source: /uploads/img_5068-2.jpg
+        alt: Fruit Trees and Shade Trees 10
+      - source: /uploads/img_5057.jpg
+        alt: Fruit Trees and Shade Trees 11
+      - source: /uploads/img_4215-2.jpg
+        alt: Fruit Trees and Shade Trees 12
+      - source: /uploads/img_0014-2.jpg
+        alt: Fruit Trees and Shade Trees 13
+      - source: /uploads/fruit-tree.jpg
+        alt: Fruit Trees and Shade Trees 14
+      - source: /uploads/deodar-cedar.jpg
+        alt: Fruit Trees and Shade Trees 15
+      - source: /uploads/bottle-brush-bush.jpg
+        alt: Fruit Trees and Shade Trees 16
+      - source: /uploads/banana.jpg
+        alt: Fruit Trees and Shade Trees 17
+      - source: /uploads/almond-tree.jpg
+        alt: Fruit Trees and Shade Trees 18
+      - source: /uploads/crape-myrtle.jpeg
+        alt: Fruit Trees and Shade Trees 19
+      - source: /uploads/desert-willow.jpeg
+        alt: Fruit Trees and Shade Trees 20
+      - source: /uploads/fruit-trees.jpg
+        alt: Fruit Trees and Shade Trees 21
+      - source: /uploads/oklahoma-red-bud.jpeg
+        alt: Fruit Trees and Shade Trees 22
+      - source: /uploads/pomegranate.jpg
+        alt: Fruit Trees and Shade Trees 23
+      - source: /uploads/raywood-ash.jpeg
+        alt: Fruit Trees and Shade Trees 24
+      - source: /uploads/specialty_bay-leaf.jpeg
+        alt: Fruit Trees and Shade Trees 25
 metadata:
   title: Seasonals
   slug: seasonals
