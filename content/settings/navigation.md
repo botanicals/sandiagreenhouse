@@ -8,4 +8,6 @@ headerNavigation:
     path: events
   - name: Seasonals
     path: seasonals
+  - name: Trees
+    path: trees
 ---

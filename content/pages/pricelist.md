@@ -2,9 +2,9 @@
 name: Pricelist
 pricelist:
   pdfs:
-    - name: Spring 2023
-      description: Spring 2023
-      file: /uploads/sandia-spring-2023.pdf
+    - name: Spring 2024
+      description: Spring 2024
+      file: /uploads/ss-2024-price-list.pdf
 metadata:
   title: Pricelist
   slug: pricelist
